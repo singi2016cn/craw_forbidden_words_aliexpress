@@ -20,3 +20,8 @@ def words_format(words):
         res = ' '.join(words.split())
         res = res.replace(' ', '&')
     return res
+
+def get_table_row_count(dr, xpath):
+    table_obj = dr.find_element_by_xpath(xpath)
+    total = len(table_obj.find_elements_by_tag_name('tr'))
+    return total

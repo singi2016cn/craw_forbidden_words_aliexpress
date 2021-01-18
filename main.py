@@ -52,8 +52,10 @@ print('写入数据库完成')
 res = []
 print('运动娱乐休闲')
 for i in trange(1):
-    xpathReg = '/html/body/div[2]/div/div/div[3]/span/span/table/tbody/tr[%d]//text()'
-    res += tools.pageData(html, xpathReg, 322, 1)
+    xpath_table_pre = '/html/body/div[2]/div/div/div[3]/span/span/table/tbody'
+    total = tools.get_table_row_count(dr, xpath_table_pre)
+    xpathReg = xpath_table_pre + '/tr[%d]//text()'
+    res += tools.pageData(html, xpathReg, total + 1, 1)
 
 jsonData = json.dumps(res)
 with open(words_path, "w") as f:
@@ -63,6 +65,82 @@ print('爬取数据完成')
 
 print('开始写入数据库')
 write_sql.write_into_db(words_path, 3)
+print('写入数据库完成')
+
+
+res = []
+print('家电')
+for i in trange(1):
+    xpath_table_pre = '/html/body/div[2]/div/div/div[7]/span/span/table/tbody'
+    total = tools.get_table_row_count(dr, xpath_table_pre)
+    xpathReg = xpath_table_pre + '/tr[%d]//text()'
+    res += tools.pageData(html, xpathReg, total + 1, 1)
+
+jsonData = json.dumps(res)
+with open(words_path, "w") as f:
+    f.write(jsonData)
+
+print('爬取数据完成')
+
+print('开始写入数据库')
+write_sql.write_into_db(words_path, 5)
+print('写入数据库完成')
+
+
+res = []
+print('美容健康')
+for i in trange(1):
+    xpath_table_pre = '/html/body/div[2]/div/div/div[9]/span/span/table/tbody'
+    total = tools.get_table_row_count(dr, xpath_table_pre)
+    xpathReg = xpath_table_pre + '/tr[%d]//text()'
+    res += tools.pageData(html, xpathReg, total + 1, 1)
+
+jsonData = json.dumps(res)
+with open(words_path, "w") as f:
+    f.write(jsonData)
+
+print('爬取数据完成')
+
+print('开始写入数据库')
+write_sql.write_into_db(words_path, 6)
+print('写入数据库完成')
+
+
+res = []
+print('礼品玩具')
+for i in trange(1):
+    xpath_table_pre = '/html/body/div[2]/div/div/div[11]/span/span/table/tbody'
+    total = tools.get_table_row_count(dr, xpath_table_pre)
+    xpathReg = xpath_table_pre + '/tr[%d]//text()'
+    res += tools.pageData(html, xpathReg, total + 1, 1)
+
+jsonData = json.dumps(res)
+with open(words_path, "w") as f:
+    f.write(jsonData)
+
+print('爬取数据完成')
+
+print('开始写入数据库')
+write_sql.write_into_db(words_path, 7)
+print('写入数据库完成')
+
+
+res = []
+print('交通工具配件等')
+for i in trange(1):
+    xpath_table_pre = '/html/body/div[2]/div/div/div[13]/span/span/table/tbody'
+    total = tools.get_table_row_count(dr, xpath_table_pre)
+    xpathReg = xpath_table_pre + '/tr[%d]//text()'
+    res += tools.pageData(html, xpathReg, total + 1, 1)
+
+jsonData = json.dumps(res)
+with open(words_path, "w") as f:
+    f.write(jsonData)
+
+print('爬取数据完成')
+
+print('开始写入数据库')
+write_sql.write_into_db(words_path, 8)
 print('写入数据库完成')
 
 
